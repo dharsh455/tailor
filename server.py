@@ -1,11 +1,10 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from twilio.rest import Client
 import subprocess
 import mysql.connector
 
-# Update the Flask app to use the custom template folder
-app = Flask(__name__, template_folder='template_folder')  # Specify custom template folder
+app = Flask(__name__)
 CORS(app)
 
 # Twilio credentials - Replace with your Account SID and Auth Token
@@ -46,7 +45,7 @@ def insert_user(name, email):
 
 @app.route('/')
 def home():
-    return render_template('index.html')  # Renders the index.html file from custom folder
+    return "Service is live!"
 
 @app.route('/measure', methods=['POST'])
 def measure():
@@ -93,6 +92,7 @@ def measure():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
