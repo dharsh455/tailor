@@ -1,10 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from twilio.rest import Client
 import subprocess
 import mysql.connector
 
-app = Flask(__name__)
+app = Flask(__name__)  # No need to specify template_folder, as Flask defaults to 'templates'
 CORS(app)
 
 # Twilio credentials - Replace with your Account SID and Auth Token
@@ -45,7 +45,7 @@ def insert_user(name, email):
 
 @app.route('/')
 def home():
-    return "Service is live!"
+    return render_template('index.html')  # Flask will look for this file inside the 'templates' folder
 
 @app.route('/measure', methods=['POST'])
 def measure():
