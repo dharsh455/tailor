@@ -43,6 +43,10 @@ def insert_user(name, email):
     cursor.close()
     connection.close()
 
+@app.route('/')
+def home():
+    return "Service is live!"
+
 @app.route('/measure', methods=['POST'])
 def measure():
     try:
@@ -92,3 +96,4 @@ def measure():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
