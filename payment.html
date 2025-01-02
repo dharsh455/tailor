@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Payment Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #85d8ce, #a3e1ed);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 36px;
+            font-weight: 600;
+            color: #3a3a3a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .container form .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .container form .row .col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .inputBox {
+            margin-bottom: 15px;
+        }
+
+        .inputBox label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .inputBox input,
+        .inputBox select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .inputBox input:focus,
+        .inputBox select:focus {
+            border-color: #007bff;
+        }
+
+        .flex {
+            display: flex;
+            gap: 15px;
+        }
+
+        .submit_btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            background: linear-gradient(to right, #007bff, #0056b3);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit_btn:hover {
+            background: linear-gradient(to right, #0056b3, #003a75);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Payment</h1>
+
+    <div class="container">
+        <form action="payment.php" method="post">
+            <div class="row">
+                <!-- Billing Address Section -->
+                <div class="col">
+                    <h3 class="title">Billing Address</h3>
+
+                    <div class="inputBox">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="full_name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" placeholder="Enter email address" required>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" placeholder="Enter address" required>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city" placeholder="Enter city" required>
+                    </div>
+
+                    <div class="flex">
+                        <div class="inputBox">
+                            <label for="state">State:</label>
+                            <input type="text" id="state" name="state" placeholder="Enter state" required>
+                        </div>
+
+                        <div class="inputBox">
+                            <label for="zip">Zip Code:</label>
+                            <input type="number" id="zip" name="zip" placeholder="123 456" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Payment Details Section -->
+                <div class="col">
+                    <h3 class="title">Payment</h3>
+
+                    <div class="inputBox">
+                        <label for="cardName">Name On Card:</label>
+                        <input type="text" id="cardName" name="card_name" placeholder="Enter card name" required>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="cardNum">Credit Card Number:</label>
+                        <input type="text" id="cardNum" name="card_number" placeholder="1111-2222-3333-4444" maxlength="19" required>
+                    </div>
+
+                    <div class="inputBox">
+                        <label for="expMonth">Exp Month:</label>
+                        <select name="exp_month" id="expMonth" required>
+                            <option value="">Choose month</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+
+                    <div class="flex">
+                        <div class="inputBox">
+                            <label for="expYear">Exp Year:</label>
+                            <select name="exp_year" id="expYear" required>
+                                <option value="">Choose Year</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                            </select>
+                        </div>
+
+                        <div class="inputBox">
+                            <label for="cvv">CVV:</label>
+                            <input type="number" id="cvv" name="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <input type="submit" value="PAY NOW" class="submit_btn">
+        </form>
+    </div>
+</body>
+
+</html>
