@@ -1,0 +1,6 @@
+Flask==2.3.2
+gunicorn==20.1.0
+mysql-connector-python==8.0.34
+twilio==8.0.0
+mediapipe==0.10.0
+opencv-python==4.5.5.64
