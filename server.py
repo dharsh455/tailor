@@ -51,7 +51,8 @@ def home():
     return send_file('templates/index.html')
     @app.route('/measurement')
 def measurement():
-        return send_file('templates/measurement.html')
+    return render_templates('templates/measurement.html')
+
 
 
 @app.route('/measure', methods=['POST'])
