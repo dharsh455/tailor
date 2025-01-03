@@ -6,9 +6,7 @@ import mysql.connector
 
 app = Flask(__name__)  # No need to specify template_folder, as Flask defaults to 'templates'
 CORS(app)
-@app.route('/measure-page')
-def measure_page():
-    return render_template('measurement.html')  # Renders the measurement.html file
+
 
 # Twilio credentials - Replace with your Account SID and Auth Token
 TWILIO_ACCOUNT_SID = 'ACc9ac24f6b52d9e066af70034539d63fc'
