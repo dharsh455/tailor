@@ -17,6 +17,7 @@ TWILIO_WHATSAPP_NUMBER = 'whatsapp:+14155238886'  # Twilio sandbox number
 # Your WhatsApp number
 YOUR_WHATSAPP_NUMBER = 'whatsapp:+918248650042'
 
+# Initialize Twilio client
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 # Database connection
@@ -45,16 +46,7 @@ def insert_user(name, email):
     cursor.close()
     connection.close()
 
-@app.route('/')
-def home():
-    # Serve the HTML file
-    return send_file('templates/index.html')
-    @app.route('/measurement')
-def measurement():
-    return render_templates('templates/measurement.html')
-
-
-
+# Measure route to run the measure.py script
 @app.route('/measure', methods=['POST'])
 def measure():
     try:
@@ -101,6 +93,10 @@ def measure():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Serve the measurement page (optional, if you want to serve static files)
+@app.route('/measurement')
+def measurement():
+    return send_file('templates/measurement.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
