@@ -4,7 +4,9 @@ from twilio.rest import Client
 import subprocess
 import mysql.connector
 
-app = Flask(__name__)
+# Initialize Flask app and specify static folder (optional, since it's the default)
+app = Flask(__name__, static_folder='static')  # This line tells Flask to use 'static' folder
+
 CORS(app)
 
 # Twilio credentials - Replace with your Account SID and Auth Token
