@@ -49,6 +49,10 @@ def insert_user(name, email):
 def home():
     # Serve the HTML file
     return send_file('templates/index.html')
+    @app.route('/measurement')
+def measurement():
+        return send_file('templates/measurement.html')
+
 
 @app.route('/measure', methods=['POST'])
 def measure():
