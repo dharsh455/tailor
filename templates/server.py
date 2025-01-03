@@ -1,12 +1,10 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from twilio.rest import Client
 import subprocess
 import mysql.connector
 
-# Initialize Flask app and specify static folder (optional, since it's the default)
-app = Flask(__name__, static_folder='static')  # This line tells Flask to use 'static' folder
-
+app = Flask(__name__)
 CORS(app)
 
 # Twilio credentials - Replace with your Account SID and Auth Token
@@ -17,7 +15,6 @@ TWILIO_WHATSAPP_NUMBER = 'whatsapp:+14155238886'  # Twilio sandbox number
 # Your WhatsApp number
 YOUR_WHATSAPP_NUMBER = 'whatsapp:+918248650042'
 
-# Initialize Twilio client
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 # Database connection
@@ -46,7 +43,10 @@ def insert_user(name, email):
     cursor.close()
     connection.close()
 
-# Measure route to run the measure.py script
+@app.route('/')
+def home():
+    return render_template('index.html')  # Renders the index.html file
+
 @app.route('/measure', methods=['POST'])
 def measure():
     try:
@@ -93,11 +93,6 @@ def measure():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Serve the measurement page (optional, if you want to serve static files)
-@app.route('/measurement')
-def measurement():
-    return send_file('templates/measurement.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
