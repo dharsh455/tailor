@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from twilio.rest import Client
 import subprocess
@@ -45,7 +45,8 @@ def insert_user(name, email):
 
 @app.route('/')
 def home():
-    return "Service is live!"
+    # Serve the HTML file
+    return send_file('templates/index.html')
 
 @app.route('/measure', methods=['POST'])
 def measure():
