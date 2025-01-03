@@ -1,1 +1,144 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualTailor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">VirtualTailor</h1>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+  <li><a href="{{ url_for('measurement.html') }}">Measurement</a></li>
+                    <li><a href="Cart.php">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Custom Tailoring Made Easy</h2>
+            <p>Your perfect fit is just a stitch away.</p>
+            <a href="#services" class="btn">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-list">
+                <div class="service-item">
+                    <h3>Custom Suits</h3>
+                    <p>Bespoke suits tailored to perfection.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Alterations</h3>
+                    <p>Perfect adjustments for your garments.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Wedding Attire</h3>
+                    <p>Elegant designs for your special day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="l1.jpg" alt="linen shirt">
+                    <h3>Linen Shirt</h3>
+                    <p>₹1500</p>
+                    <button class="btn add-to-cart" data-product="Linen Shirt" data-price="1500">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="l2.jpg" alt="classic shirt">
+                    <h3>Classic Shirt</h3>
+                    <p>₹1149</p>
+                    <button class="btn add-to-cart" data-product="Classic Shirt" data-price="1149">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <img src="l4.jpg" alt="striped shirt">
+                    <h3>Striped Shirt</h3>
+                    <p>₹1189</p>
+                    <button class="btn add-to-cart" data-product="Striped Shirt" data-price="1189">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Virtual Tailor is a patent-pending online software Trusted for on-demand manufacturing, made-to-measure, and custom clothier applications. Virtual Tailor determines over 50 body measurements with tailor-level accuracy — no measuring tape needed.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <input type="email" placeholder="Enter your email" class="email-input">
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+            <div class="footer-links">
+                <div class="menu">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;RK Street, Pollachi.</p>
+                    <p><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;<a href="tel:+918248650042">+91 8248650042</a></p>
+                    <p><a href="mailto:virtualtailor@gmail.com"><i class="fa fa-envelope"></i>&nbsp;&nbsp;virtualtailor@gmail.com</a></p>
+                </div>
+                <div class="social">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fa-brands fa-facebook" style="color: #74C0FC;"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin" style="color: #fb98b2;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>
+
