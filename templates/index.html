@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-   <section id="products" class="products">
+  <section id="products" class="products">
     <div class="container">
         <h2>Our Products</h2>
         <div class="product-list">
@@ -61,35 +61,23 @@
                 <img src="l1.jpg" alt="linen shirt">
                 <h3>Linen Shirt</h3>
                 <p>₹1500</p>
-                <!-- Add to Cart button with a link to add_to_cart.php -->
-                <button class="btn add-to-cart">
-                    <a href="add_to_cart.php?product_name=Linen%20Shirt&product_price=1500&product_image=l1.jpg">Add to Cart</a>
-                </button>
+                <button class="btn add-to-cart" data-product="Linen Shirt" data-price="1500" data-image="l1.jpg">Add to Cart</button>
             </div>
             <div class="product-item">
                 <img src="l2.jpg" alt="classic shirt">
                 <h3>Classic Shirt</h3>
                 <p>₹1149</p>
-                <!-- Add to Cart button with a link to add_to_cart.php -->
-                <button class="btn add-to-cart">
-                    <a href="add_to_cart.php?product_name=Classic%20Shirt&product_price=1149&product_image=l2.jpg">Add to Cart</a>
-                </button>
+                <button class="btn add-to-cart" data-product="Classic Shirt" data-price="1149" data-image="l2.jpg">Add to Cart</button>
             </div>
             <div class="product-item">
                 <img src="l4.jpg" alt="striped shirt">
                 <h3>Striped Shirt</h3>
                 <p>₹1189</p>
-                <!-- Add to Cart button with a link to add_to_cart.php -->
-                <button class="btn add-to-cart">
-                    <a href="add_to_cart.php?product_name=Striped%20Shirt&product_price=1189&product_image=l4.jpg">Add to Cart</a>
-                </button>
+                <button class="btn add-to-cart" data-product="Striped Shirt" data-price="1189" data-image="l4.jpg">Add to Cart</button>
             </div>
         </div>
     </div>
 </section>
-
-    
-
     <section id="about" class="about">
         <div class="container">
             <h2>About Us</h2>
@@ -165,7 +153,38 @@
         })(document, 'script', 'conferbot-js');
       </script>
       <!--End of Conferbot Script-->
-    
+    <script>
+    // Attach event listener to all Add to Cart buttons
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const productName = this.getAttribute('data-product');
+            const productPrice = this.getAttribute('data-price');
+            const productImage = this.getAttribute('data-image');
+
+            // Send the data to Flask via POST request
+            fetch('/add_to_cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    product_name: productName,
+                    product_price: productPrice,
+                    product_image: productImage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Product added to cart!');
+                } else {
+                    alert('Failed to add product to cart!');
+                }
+            });
+        });
+    });
+</script>
+
 
     <script src="{{ url_for('static', filename='cart.js') }}"></script>
 </body>
