@@ -5,3 +5,4 @@ mysql-connector-python==8.0.33
 twilio==8.0.0
 mediapipe==0.10.5
 opencv-python==4.5.5.64
+psycopg2-binary==2.9.7
