@@ -1,1 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url('t1.jpeg') no-repeat center center fixed; /* Background image */
+            background-size: cover; /* Make the image cover the whole area */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+        nav a:hover {
+            color: #f4f4f4;
+        }
+    
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: linear-gradient(135deg, #9acdff, #fad0c4);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+    
+        .container h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+    
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 16px;
+        }
+    
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+		input[type="text"] {
+    width: 100%;
+    padding: 12px 4px; /* Adjust the left and right padding to 15px for more space */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="email"]{
+  width: 100%;
+            padding: 12px 4px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;}
+
+    
+        input[type="text"]:focus, input[type="email"]:focus {
+            transform: scale(1.03);
+            box-shadow: 0 0 8px rgba(255, 153, 153, 0.8);
+        }
+    
+        button {
+            padding: 15px 10px;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+    
+        button:hover {
+            background-color: #8239ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            color: #333;
+            text-align: center;
+            font-size: 16px;
+        }
+    
+        .response h3 {
+            margin: 0 0 10px;
+        }
+    
+        .footer {
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 0; /* Ensure no white space below */
+        }
+    
+        footer {
+            margin-top: auto;
+        }
+    
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0 20px;
+        }
+    
+        .footer-left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+    
+.email-input {
+    padding: 10px;
+    width: 250px;
+    margin: 15px 10px 0 0; /* Adds a slight top margin for alignment */
+    border: none;
+    border-radius: 4px;
+}
+
+.subscribe-btn {
+    padding: 11px 12px; /* Adjust button padding for better alignment */
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        .menu, .contact, .social {
+            flex: 1;
+        }
+        .menu{
+            margin-left: 40px;
+        }
+    
+        .menu h4, .contact h4, .social h4 {
+            margin-bottom: 10px;
+        }
+    
+        .menu ul, .social a {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .menu li, .social a {
+            margin: 10px 0;
+        }
+        
+    .contact a {
+    color: inherit; /* Inherit the color from the parent, so it won't be blue */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+.contact a:hover {
+    color: inherit; /* Ensure the color stays the same when hovered */
+    text-decoration: underline; /* Optionally add underline on hover for better UX */
+}
+
+        .social a img {
+            width: 25px;
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+    
+        .social a img:hover {
+            transform: scale(1.1);
+        }
+		.fa-brands {
+    font-size: 20px;
+    margin: 0 5px;
+    transition: transform 0.3s;
+}
+
+.fa-brands:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+    </style>
+    
+</head>
+<body>
+    <div class="measurement-section">
+        <!-- Content Here -->
+    </div>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <div><strong>Virtual Tailor</strong></div>
+        <div>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#products">Products</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="measurement.html">Measurement</a>
+        </div>
+    </nav>
+
+    <!-- Measurement Form -->
+    <div class="container">
+        <h2>Measurement</h2>
+        <form id="measurementForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <button type="button" onclick="submitForm()">Measure Now</button>
+        </form>
+
+        <div class="response" id="responseContainer" style="display: none;">
+            <h3>Response:</h3>
+            <pre id="responseText"></pre>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <input type="email" placeholder="Enter your email" class="email-input">
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+            <div class="footer-links">
+                <div class="menu">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;rk street,pollachi.</p>
+                    <p><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;<a href="tel: +918248650042"> +91 8248650042</a></p>
+             <p><a href="mailto:virtualtailor@gmail.com"><i class="fa fa-envelope"></i>&nbsp;&nbsp;virtualtailor@gmail.com</a></p>
+                </div>
+                <div class="social">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fa-brands fa-facebook" style="color: #74C0FC;"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin" style="color: #98c3fb;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        async function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000/measure', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('responseContainer').style.display = 'block';
+                    document.getElementById('responseText').innerText = `Measurement captured and sent successfully! SID: ${data.sid}`;
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        }
+    </script>
+	</body>
+	</html>
 
